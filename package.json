@@ -14,7 +14,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.1.1",
 		"@sveltejs/kit": "^1.30.4",
-		"@types/node": "^20.16.4",
+		"@types/node": "^18.15.3",
 		"@types/reveal.js": "^4.4.8",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
 		"@typescript-eslint/parser": "^6.21.0",
