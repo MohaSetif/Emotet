@@ -1,0 +1,260 @@
+:root {
+	/* markdown font sizes*/
+
+	/* regular headers*/
+
+	--body: clamp(1.4rem, calc(1.4rem + ((1vw - 0.48rem) * 0.3472)), 1.775rem);
+	--h1: clamp(3rem, calc(3rem + ((1vw - 0.48rem) * 1.3889)), 4.2rem);
+	--h2: clamp(2.4rem, calc(2.4rem + ((1vw - 0.48rem) * 1.3889)), 3.6rem);
+	--h3: clamp(1.7rem, calc(1.7rem + ((1vw - 0.48rem) * 0.5208)), 2.075rem);
+	--h4: clamp(1.4rem, calc(1.4rem + ((1vw - 0.48rem) * 0.3472)), 1.775rem);
+
+	--lh1: 1.3;
+	--lh2: 1.35;
+	--lh3: 1.4;
+	--lh4: 1.5;
+	--lhbody: 1.6;
+
+	/*default colors */
+	--primary800: #3c9ee1;
+	--primary400: #3c9fe17a;
+	--primary100: #3c9fe118;
+	--font: #f0e8e8;
+	--bg: #000000;
+
+	/* Code Effect */
+	--background-light-rgb: 30 41 59;
+
+	--border-rgb: 255 255 255;
+	--border: 1px solid rgb(var(--border-rgb) / 20%);
+
+	--emotet-main-rgb: 41 121 255;
+	--emotet-main-light-rgb: 56 182 255;
+	--emotet-secondary-rgb: 42 252 152;
+
+	--card-size: 480px;
+	--font-size: 0.8rem;
+	--logo-size: calc(var(--card-size) * 0.3);
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+	border-radius: 12px;
+	background: var(--primary100);
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 12px;
+	background: var(--primary800);
+}
+
+html {
+	scroll-behavior: smooth;
+	overflow-y: auto !important;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--font);
+}
+
+button {
+	width: fit-content;
+	height: fit-content;
+	border: none;
+	outline: none;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: var(--body);
+	line-height: var(--lhbody);
+	color: var(--font);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	color: var(--font);
+}
+
+h1 {
+	font-size: var(--h1);
+	line-height: var(--lh1);
+	margin-top: 1.4rem;
+	margin-bottom: 1.2rem;
+}
+h2 {
+	font-size: var(--h2);
+	line-height: var(--lh2);
+	margin-top: 1.2rem;
+	margin-bottom: 1rem;
+}
+h3 {
+	font-size: var(--h3);
+	line-height: var(--lh3);
+	margin-top: 1rem;
+	margin-bottom: 0.8rem;
+}
+h4 {
+	margin-top: 0.8rem;
+	margin-bottom: 0.6rem;
+	font-size: var(--h4);
+	line-height: var(--lh4);
+}
+
+p,
+span,
+a,
+li,
+code {
+	font-family: 'Source Sans 3', sans-serif;
+	font-size: var(--body);
+	line-height: var(--lhbody);
+	font-weight: 400;
+	white-space: normal;
+	color: var(--font);
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/* Code Effect */
+
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	font-family: 'Noto Sans', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.card-track {
+	height: 100%;
+	width: var(--card-size);
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.card-wrapper {
+	width: 100%;
+	position: relative;
+}
+
+.card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 1;
+	position: relative;
+	margin: 1rem;
+	border-radius: 2rem;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.card-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	z-index: 4;
+}
+
+.card-title img {
+	position: absolute;
+	width: 150px;
+	opacity: 0.25;
+	z-index: 3;
+}
+
+.card-gradient {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: radial-gradient(
+		rgb(var(--background-light-rgb)) 40%,
+		rgb(var(--emotet-main-rgb)) 50%,
+		rgb(var(--emotet-main-light-rgb)),
+		rgb(var(--emotet-secondary-rgb))
+	);
+	mix-blend-mode: darken;
+	pointer-events: none;
+	z-index: 3;
+}
+
+.card-letters {
+	--x: 0px;
+	--y: 0px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+	color: white;
+	font-size: var(--font-size);
+	font-weight: 500;
+	word-wrap: break-word;
+	opacity: 0;
+	transition: opacity 400ms;
+	-webkit-mask-image: radial-gradient(
+		calc(var(--card-size) * 0.8) circle at var(--x) var(--y),
+		rgb(255 255 255) 20%,
+		rgb(255 255 255 / 25%),
+		transparent
+	);
+	scale: 1.5;
+}
+
+.card:hover .card-letters {
+	opacity: 1;
+}
+
+@media (max-width: 600px) {
+	:root {
+		--card-size: 340px;
+	}
+
+	.card {
+		border-radius: 1rem;
+	}
+}
+
+/* -- Extra Styles -- */
+
+.card-track:before,
+.card-track:after {
+	content: '';
+	height: 100vh;
+	width: 1px;
+	position: absolute;
+	top: 50%;
+	translate: 0% -50%;
+}
+
+.card-wrapper:before {
+	top: -1px;
+	border-top: var(--border);
+}
+
+.card-wrapper:after {
+	bottom: -1px;
+	border-bottom: var(--border);
+}

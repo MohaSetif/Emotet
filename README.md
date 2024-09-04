@@ -153,5 +153,3 @@ const updateSoftware = () => {
     // ...
 };
 ```
-
-# Emotet
