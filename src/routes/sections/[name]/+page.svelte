@@ -13,7 +13,7 @@
 </script>
 
 <div class="section">
-	<div>
+	<div class="navbar">
 		<a href="/">Emotet</a>
 		<h4>{decodedLocation}</h4>
 		<div>
@@ -25,9 +25,16 @@
 			{/if}
 		</div>
 	</div>
-	{#key $page.url.pathname}
-		<Reveal mdFile={decodedLocation} />
-	{/key}
+
+	<div class="content">
+		<br>
+		<br>
+		<br>
+		<br>
+		{#key $page.url.pathname}
+			<Reveal mdFile={decodedLocation} />
+		{/key}
+	</div>
 </div>
 
 <style>
@@ -37,12 +44,29 @@
 		display: flex;
 		flex-direction: column;
 	}
+
+	.section .content {
+		width: 100%;
+		flex-grow: 1;
+	}
+
+	.section .navbar {
+			width: 100%;
+			height: 80px;
+			align-items: center;
+			justify-content: space-between;
+			padding-inline: 5%;
+			display: flex;
+			z-index: 99;
+			position: fixed;
+	}
+
 	.section div:first-child h4 {
 		color: var(--primary800);
 	}
 	.section div:first-child {
 		width: 100%;
-		height: 80px;
+		padding: 10px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -52,16 +76,24 @@
 	.section > div > a {
 		font-size: var(--h3);
 	}
+
 	.section > div > div > a {
-		font-size: var(--h4);
-		margin-left: 10px;
+                font-size: var(--h4);
+                font-size: 1rem;
+                margin-left: 10px;
+                margin-left: 10px;
+                gap: 10px;
 	}
+	.section > div > div{
+			border: 1px solid rgb(39, 39, 39);
+			background-color: rgb(20, 20, 20);
+			padding: 5px;
+			padding-right: 15px;
+			border-radius: 20px;
+	}
+        
 	.section > div > div > a:hover {
-		background-color: var(--primary100);
 		color: var(--primary800);
-		padding-inline: 6px;
-		padding-block: 4px;
-		border-radius: 8px;
 	}
 
 	@media screen and (width <768px) {
