@@ -36,7 +36,7 @@
 <style>
 	.section {
 		width: 100vw;
-		height: 100vh;
+		height: 90vh;
 		display: flex;
 		flex-direction: column;
 	}
