@@ -27,8 +27,6 @@
 	</div>
 
 	<div class="content">
-		<br>
-		<br>
 		{#key $page.url.pathname}
 			<Reveal mdFile={decodedLocation} />
 		{/key}
